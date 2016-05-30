@@ -21,7 +21,7 @@ keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
+    compileSdkVersion 23
     buildToolsVersion "23.0.3"
 
     defaultConfig {
@@ -35,10 +35,10 @@ android {
 
     signingConfigs {
         release {
-            storeFile file(keystoreProperties['storeFile'])
-            storePassword keystoreProperties['storePassword']
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
+            storeFile file(System.getenv("KEYSTORE_FILE"))
+            storePassword System.getenv("STORE_PASSWORD")
+            keyAlias "vpapp"
+            keyPassword System.getenv("STORE_PASSWORD")
         }
     }
 
@@ -69,8 +69,8 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:22.+'
-    compile 'com.android.support:recyclerview-v7:22.+'
+    compile 'com.android.support:appcompat-v7:23.+'
+    compile 'com.android.support:recyclerview-v7:23.+'
 
     compile 'com.google.firebase:firebase-ads:9.0.0'
     compile 'com.google.firebase:firebase-messaging:9.0.0'
