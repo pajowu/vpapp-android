@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/loadvp"
+          android:title="@string/vp_load"
+          android:showAsAction="never"/>
+    <item android:id="@+id/setclass"
+          android:title="@string/choose_class"
+          android:showAsAction="never"/>
+    <item android:id="@+id/setschoolcode"
+          android:title="@string/change_school_code"
+          android:showAsAction="never"/>
+    <item android:id="@+id/switchads"
+          android:title="@string/ads"
+          android:showAsAction="never"
+          android:checkable="true"/>
+</menu>

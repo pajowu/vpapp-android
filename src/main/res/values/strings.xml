@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>    
+    <string name="cancel">Abbrechen</string>
+    <string name="loading">Lade …</string>
+    <string name="ok">OK</string>
+    <string name="schoolclass">Klasse</string>
+    <string name="hour">Stunde</string>
+    <string name="subject">Fach</string>
+    <string name="teacher">LehrerIn</string>
+    <string name="room">Raum</string>
+    <string name="desc">Beschreibung</string>
+    <string name="vpdate">Vertretungsplan für:</string>
+    <string name="absent_teachers">Abwesende LehrerInnen:</string>
+    <string name="absent_classes">Abwesende Klassen:</string>
+    <string name="changed_teachers">LehrerInnen mit Änderung:</string>
+    <string name="changed_classes">Klassen mit Änderung:</string>
+    <string name="more">Zusätzliche Informationen:</string>
+    <string name="registerfornews">Für Neuigkeiten anmelden</string>
+    <string name="registerfornews_text">Mit dem Klick auf \'OK\' wird sich dein Smartphone registrieren, um in Zukunft Neuigkeiten zu erhalten</string>
+    <string name="choose_class">Klassen/LehrerInnen wählen</string>
+    <string name="choose_class_text">Namen der Klassen und LehrerInnen (durch Kommata getrennt) eingeben:</string>
+    <string name="push_notifications">Push-Nachrichten</string>
+    <string name="push_notifications_text">Möchest du Nachrichten für die Änderungen am Vertretungsplan dieser Klasse bekommen?</string>
+    <string name="enter_school_code">Schul-Code eingeben</string>
+    <string name="enter_school_code_text">Schul-Code eingeben:</string>
+    <string name="change_school_code">Schul-Code eingeben</string>
+    <string name="ads">Werbung anzeigen</string>
+    <string name="open_url">Url öffnen</string>
+    <string name="vp_load">VP laden</string>
+</resources>

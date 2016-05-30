@@ -1,0 +1,94 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.1.0'
+        classpath 'com.google.gms:google-services:3.0.0'
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+def keystorePropertiesFile = rootProject.file("keystore.properties");
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        applicationId "de.pajowu.vp"
+        minSdkVersion 10
+        targetSdkVersion 23
+        versionCode 25
+        versionName "2.0.2"
+        resConfigs "de"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+        }
+    }
+
+    buildTypes {
+        all { 
+            buildConfigField "String", "GCM_SENDER", "\"1085192535095\""
+            buildConfigField "String", "ADMOB_APP_ID", "\"ca-app-pub-3222558331255580~3727158351\""
+            resValue "string", "banner_ad_unit_id", "ca-app-pub-3940256099942544/6300978111"
+        }
+        debug {
+            buildConfigField "String", "BASE_URL", "\"http://10.0.0.7:8080/_ah/api/vp/v1/\""
+            applicationIdSuffix ".debug"
+            resValue "string", "app_name", "VP DEBUG"
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_URL", "\"https://release-dot-vpapp-bmmsz.appspot.com/_ah/api/vp/v1/\""
+            resValue "string", "app_name", "Vertretungsplan"
+            signingConfig signingConfigs.release
+        }
+    }
+
+    
+    
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:22.+'
+    compile 'com.android.support:recyclerview-v7:22.+'
+
+    compile 'com.google.firebase:firebase-ads:9.0.0'
+    compile 'com.google.firebase:firebase-messaging:9.0.0'
+
+    compile 'com.squareup.retrofit2:retrofit:2.0.2'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
+
+    compile 'com.google.code.gson:gson:2.2.4'
+
+
+}
+
+apply plugin: 'com.google.gms.google-services'
+
+allprojects {
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+        }
+    }
+}
